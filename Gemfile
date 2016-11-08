@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-#api gems 
-gem 'rails-api'
+#gem to access information from other apis 
 gem 'active_shipping'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
