@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carrier: MyString
+  cost: 1
+  service_name: MyString
+  origin: MyString
+  destination: MyString
+
+two:
+  carrier: MyString
+  cost: 1
+  service_name: MyString
+  origin: MyString
+  destination: MyString
