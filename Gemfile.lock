@@ -24,6 +24,14 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_shipping (1.8.3)
+      active_utils (~> 3.2.0)
+      activesupport (>= 3.2, < 5.1.0)
+      nokogiri (>= 1.6)
+      quantified (~> 1.0.1)
+    active_utils (3.2.2)
+      activesupport (>= 3.2, < 5.1.0)
+      i18n
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -64,6 +72,7 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     puma (3.6.0)
+    quantified (1.0.1)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -79,6 +88,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-api (0.4.0)
+      actionpack (>= 3.2.11)
+      railties (>= 3.2.11)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
@@ -119,10 +131,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_shipping
   byebug
   listen (~> 3.0.5)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rails-api
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

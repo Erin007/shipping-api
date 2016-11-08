@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#api gems 
+gem 'rails-api'
+gem 'active_shipping'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
