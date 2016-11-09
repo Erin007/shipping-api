@@ -8,7 +8,8 @@ class ShipmentsController < ApplicationController
                                       state: 'CA',
                                       city: 'Beverly Hills',
                                       address: '1234 Palm Tree St.',
-                                      zip: '90210')
+                                      zip: '90210'
+                                      )
 
     destination = ActiveShipping::Location.new(country: 'US',
                                               state: 'WA',
