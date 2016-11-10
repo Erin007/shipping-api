@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108230737) do
+ActiveRecord::Schema.define(version: 20161110214339) do
 
   create_table "shipments", force: :cascade do |t|
     t.string   "carrier"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161108230737) do
     t.string   "destination"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "selected?"
   end
 
 end
