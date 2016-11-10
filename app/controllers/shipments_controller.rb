@@ -4,18 +4,18 @@ class ShipmentsController < ApplicationController
 
     package = ActiveShipping::Package.new(100,  [93,10], cylinder: true)
 
-    origin = ActiveShipping::Location.new(country: 'US',
-                                      state: 'CA',
-                                      city: 'Beverly Hills',
-                                      address: '1234 Palm Tree St.',
-                                      zip: '90210'
+    origin = ActiveShipping::Location.new(country: params[:origin_country],
+                                      # state: params[:origin_state],
+                                      # city: params[:origin_city],
+                                      # address: params[:origin_address],
+                                      zip: params[:origin_zip]
                                       )
 
-    destination = ActiveShipping::Location.new(country: 'US',
-                                              state: 'WA',
-                                              city: 'Seattle',
-                                              address: '5678 Pine Tree St.',
-                                              zip: '98136'
+    destination = ActiveShipping::Location.new(country: params[:destination_country],
+                                              # state: 'WA',
+                                              # city: 'Seattle',
+                                              # address: '5678 Pine Tree St.',
+                                              zip: params[:destination_zip]
                                            )
 
     usps = ActiveShipping::USPS.new(login: ENV["ACTIVESHIPPING_USPS_LOGIN"])
