@@ -1,34 +1,19 @@
 require 'test_helper'
 
 class ShipmentsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get shipments_index_url
-    assert_response :success
+
+  test "Required fields must be present in origin" do
+    origin = ActiveShipping::Location.new
+    fields = %w(country city state address)
+    
+    assert_not_nil origin, fields
   end
 
-  test "should get show" do
-    get shipments_show_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get shipments_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get shipments_create_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get shipments_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get shipments_destroy_url
-    assert_response :success
+  test "Required fields must be present in destination" do
+    destination = ActiveShipping::Location.new
+    fields = %w(country city state address)
+    
+    assert_not_nil destination, fields
   end
 
 end
