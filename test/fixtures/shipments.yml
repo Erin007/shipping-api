@@ -1,15 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  carrier: MyString
-  cost: 1
-  service_name: MyString
-  origin: MyString
-  destination: MyString
+  carrier: "UPS"
+  cost: 2500
+  service_name: "Overnight"
+  selected?: false
+  origin_zip: "98136"
+  origin_country: "USA"
+  destination_country: "USA"
+  destination_zip: "46260"
 
-two:
-  carrier: MyString
-  cost: 1
-  service_name: MyString
-  origin: MyString
-  destination: MyString
+# two:
+#   carrier: MyString
+#   cost: 1
+#   service_name: MyString
+#   origin: MyString
+#   destination: MyString

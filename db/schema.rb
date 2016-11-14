@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108230737) do
+ActiveRecord::Schema.define(version: 20161110215641) do
 
   create_table "shipments", force: :cascade do |t|
     t.string   "carrier"
     t.integer  "cost"
     t.string   "service_name"
-    t.string   "origin"
-    t.string   "destination"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.boolean  "selected?"
+    t.string   "origin_zip"
+    t.string   "origin_country"
+    t.string   "destination_country"
+    t.string   "destination_zip"
   end
 
 end

@@ -1,21 +1,14 @@
 class ShipmentsController < ApplicationController
 
   def find_rates
-
     package = ActiveShipping::Package.new(100,  [93,10], cylinder: true)
 
-    origin = ActiveShipping::Location.new(country: 'US',
-                                      state: 'CA',
-                                      city: 'Beverly Hills',
-                                      address: '1234 Palm Tree St.',
-                                      zip: '90210'
-                                      )
+    origin = ActiveShipping::Location.new(country: params[:origin_country] || "USA",
+                                          zip:  params[:origin_zip] || "98136"
+                                        )
 
-    destination = ActiveShipping::Location.new(country: 'US',
-                                              state: 'WA',
-                                              city: 'Seattle',
-                                              address: '5678 Pine Tree St.',
-                                              zip: '98136'
+    destination = ActiveShipping::Location.new(country: params[:destination_country] || "USA",
+                                              zip: params[:destination_zip] || "46260"
                                            )
 
     usps = ActiveShipping::USPS.new(login: ENV["ACTIVESHIPPING_USPS_LOGIN"])
@@ -30,9 +23,17 @@ class ShipmentsController < ApplicationController
 
     all_rates = usps_rates + ups_rates
     render json: all_rates
+
+    return all_rates
+  end
+
+  def shipment_options
+    find_rates().each do |rate|
+      cost = rate[1]
+      carrier = rate[0].split(" ")[0]
+      service_name = rate[0].split(" ")[1..100].join(" ")
+      Shipment.create(carrier, service_name, cost,  params[:origin_zip], params[:origin_country], params[:destination_zip],  params[:destination_country], selected )
+    end
   end
 
 end
-
-
-#Do this for each of the postal services you want to use, include the params for each of the things and hide the secrets and keys in the .env file
