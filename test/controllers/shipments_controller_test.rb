@@ -2,19 +2,20 @@ require 'test_helper'
 
 class ShipmentsControllerTest < ActionDispatch::IntegrationTest
 # <<<<<<< HEAD
-#I think the only required fields are the zip and the country, the shipping apis can figure out the rest from those two pieces of information...
-  # test "Required fields must be present in origin" do
-  #   origin = ActiveShipping::Location.new
-  #   fields = %w(country zip)
+#I think the only required fields are the zip and the country, the shipping apis can figure out the rest from those two pieces of information... Also, I'm not entirely sure what these are testing because it seems to me like you make an ActiveShipping Object but don't give it any parameters so how will the fields have any values? 
+  test "Required fields must be present in origin" do
+    origin = ActiveShipping::Location.new
+    fields = %w(country zip)
+
+    assert_not_nil origin, fields
+  end
   #
-  #   assert_not_nil origin, fields
-  # end
-  #
-  # test "Required fields must be present in destination" do
-  #   destination = ActiveShipping::Location.new
-  #   fields = %w(country zip)
-  #
-  #   assert_not_nil destination, fields
+  test "Required fields must be present in destination" do
+    destination = ActiveShipping::Location.new
+    fields = %w(country zip)
+
+    assert_not_nil destination, fields
+  end
 # =======
 
   test "should get index (shipments#find_rates)" do
@@ -55,7 +56,6 @@ class ShipmentsControllerTest < ActionDispatch::IntegrationTest
     get root_url
     body = JSON.parse(response.body)
     assert body[0][1] < body[1][1]
->>>>>>> tests
   end
 
 end
