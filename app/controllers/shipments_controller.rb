@@ -3,12 +3,12 @@ class ShipmentsController < ApplicationController
   def find_rates
     package = ActiveShipping::Package.new(100,  [93,10], cylinder: true)
 
-    origin = ActiveShipping::Location.new(country: params[:origin_country],
-                                          zip: params[:origin_zip]
+    origin = ActiveShipping::Location.new(country: params[:origin_country] || "USA",
+                                          zip:  params[:origin_zip] || "98136"
                                         )
 
-    destination = ActiveShipping::Location.new(country: params[:destination_country],
-                                              zip: params[:destination_zip]
+    destination = ActiveShipping::Location.new(country: params[:destination_country] || "USA",
+                                              zip: params[:destination_zip] || "46260"
                                            )
 
     usps = ActiveShipping::USPS.new(login: ENV["ACTIVESHIPPING_USPS_LOGIN"])
